@@ -14,6 +14,9 @@ public class Task4
 
         Console.WriteLine("\nBooks written by authors with 't' in their name:");
         FilterByContainingT(books);
+
+        int count = CountBooksWrittenAfter1992(books);
+        Console.WriteLine($"\nNumber of books written after 1992: {count}");
     }
 
     //Return only books that starts on The----------------------------------------------
@@ -39,6 +42,19 @@ public class Task4
                 Console.WriteLine($"Title: {book.title}, Publication Year: {book.publication_year}, Author: {book.author}, ISBN: {book.isbn}");
             }
         }
+    }
+    //filter by number of books written after 1992--------------------------------------
+    public int CountBooksWrittenAfter1992(Book[] books)
+    {
+        int count = 0;
+        foreach (Book book in books)
+        {
+            if (book.publication_year > 1992)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
 
